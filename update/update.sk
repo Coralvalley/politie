@@ -14,27 +14,27 @@ on load:
     set {_pluginlink} to "{@pluginlink}"
 
     set {_version} to text from {_versionlink}
-    set {_currentVersion} to yaml value "DoNotChange.version" in "%{_pluginname}%-config"
+    set {_currentVersion} to yaml value "DoNotChange.version" in "politie-config"
 
     set {_characters::*} to {_version} split at "."
     set {_newVersionCharacters} to "%{_characters::1}%%{_characters::2}%%{_characters::3}%" parsed as integer
 
-    set {_characters::*} to yaml value "DoNotChange.version" in "%{_pluginname}%-config" split at "."
+    set {_characters::*} to yaml value "DoNotChange.version" in "politie-config" split at "."
     set {_currentVersionCharacters} to "%{_characters::1}%%{_characters::2}%%{_characters::3}%" parsed as integer
 
     # Disable the main plugin file 'crypto.sk'
-    disable script "%{_pluginname}%"
+    disable script "politie"
     wait 2 seconds
 
     # Delete the main plugin file now called '-crypto.sk'
-    delete file "plugins/Skript/scripts/-%{_pluginname}%.sk"
+    delete file "plugins/Skript/scripts/-politie.sk"
 
     # Download the new main plugin file called 'crypto.sk'
-    download file from "%{_pluginlink}%" to file "plugins/Skript/scripts/%{_pluginname}%.sk"
+    download file from "%{_pluginlink}%" to file "plugins/Skript/scripts/politie.sk"
 
     # Enable and reload the main plugin file 'crypto.sk'
-    reload script "%{_pluginname}%"
+    reload script "politie"
 
     # Set the version of the plugin in config.yml to the new version
-    set yaml value "DoNotChange.version" in "%{_pluginname}%-config" to {_version}
-    save yaml "%{_pluginname}%-config"
+    set yaml value "DoNotChange.version" in "politie-config" to {_version}
+    save yaml "politie-config"
