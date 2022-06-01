@@ -8,11 +8,6 @@
 
 
 on load:
-    set {_versionlink} to "{@versionlink}"
-    set {_pluginname} to "{@pluginname}"
-    set {_pluginfolder} to "{@pluginfolder}"
-    set {_pluginlink} to "{@pluginlink}"
-
     set {_version} to text from "https://raw.githubusercontent.com/Coralvalley/politie/main/version.yml"
     set {_currentVersion} to yaml value "DoNotChange.version" in "politie-config"
 
