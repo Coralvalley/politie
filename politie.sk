@@ -1,11 +1,11 @@
 options:
-    prefix: &r[Pluginname]
-    pluginfolder: pluginname
-    pluginname: pluginname
+    prefix: &r[politie]
+    pluginfolder: politie
+    pluginname: politie
 
     # Put here the raw link of the version.yml file
-    versionlink: https://raw.githubusercontent.com/SilvinvanHaestregt/Minecraft-Crypto/main/version.yml
-    pluginlink: https://raw.githubusercontent.com/SilvinvanHaestregt/Minecraft-Crypto/main/crypto.sk
+    versionlink: https://github.com/Coralvalley/politie/raw/main/version.yml
+    pluginlink: https://github.com/Coralvalley/politie/raw/main/plugin.sk
 
 on load:
 
