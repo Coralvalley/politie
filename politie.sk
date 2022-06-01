@@ -4,7 +4,7 @@ options:
     pluginname: politie
 
     # Put here the raw link of the version.yml file
-    versionlink: https://raw.githubusercontent.com/Coralvalley/politie/main/version.yml?token=GHSAT0AAAAAABTGGRCX47PTNCZFJM7JUY4GYUXM2RQ
+    versionlink: https://raw.githubusercontent.com/Coralvalley/politie/main/version.yml?token=GHSAT0AAAAAABTGGRCXVZRULIIDWKYT2BIAYUXNAWA
     pluginlink: https://raw.githubusercontent.com/Coralvalley/politie/main/politie.sk?token=GHSAT0AAAAAABTGGRCXN3HLI7CZE3CBVDRGYUXM22Q
 
 on load:
