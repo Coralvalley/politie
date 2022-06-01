@@ -13,14 +13,14 @@ on load:
         load yaml "plugins/politie/config.yml" as "politie-config" # Load the config file
         save yaml "politie-config" # Save the config file
 
-    if online status of url "https://raw.githubusercontent.com/Coralvalley/politie/main/version.yml?token=GHSAT0AAAAAABTGGRCWHPNAPTPL2MPPZ5JAYUXOBBA" is true:
+    if online status of url "https://raw.githubusercontent.com/Coralvalley/politie/main/version.yml" is true:
         if yaml value "DoNotChange.version" in "politie-config" is not set:
-            set {_version} to text from "https://raw.githubusercontent.com/Coralvalley/politie/main/version.yml?token=GHSAT0AAAAAABTGGRCWHPNAPTPL2MPPZ5JAYUXOBBA"
+            set {_version} to text from "https://raw.githubusercontent.com/Coralvalley/politie/main/version.yml"
             set yaml value "DoNotChange.version" in "politie-config" to {_version}
             set the comments of yaml node "DoNotChange" in "politie-config" to "Do not change this! If you still do so it could break the plugin!" and "If the version isn't right it will be shown in the config."
             save yaml "politie-config"
         else:
-            set {_version} to text from "https://raw.githubusercontent.com/Coralvalley/politie/main/version.yml?token=GHSAT0AAAAAABTGGRCWHPNAPTPL2MPPZ5JAYUXOBBA"
+            set {_version} to text from "https://raw.githubusercontent.com/Coralvalley/politie/main/version.yml"
             set {_currentVersion} to yaml value "DoNotChange.version" in "politie-config"
 
             set {_characters::*} to {_version} split at "."
@@ -61,7 +61,7 @@ command /politie [<text>]:
     trigger:
         if arg-1 is "update":
             if player has permission "op":
-                set {_version} to text from "https://raw.githubusercontent.com/Coralvalley/politie/main/version.yml?token=GHSAT0AAAAAABTGGRCWHPNAPTPL2MPPZ5JAYUXOBBA"
+                set {_version} to text from "https://raw.githubusercontent.com/Coralvalley/politie/main/version.yml"
                 set {_currentVersion} to yaml value "DoNotChange.version" in "politie-config"
 
                 set {_characters::*} to {_version} split at "."
@@ -74,5 +74,5 @@ command /politie [<text>]:
                     delete file path "plugins/Skript/scripts/update.sk"
                 else if file path "plugins/Skript/scripts/-update.sk" exists:
                     delete file path "plugins/Skript/scripts/-update.sk"
-                download file from "https://raw.githubusercontent.com/Coralvalley/politie/main/update/update.sk?token=GHSAT0AAAAAABTGGRCXMCN7NT5DCGY3II7YYUXNU2A" to file "plugins/Skript/scripts/update.sk"
+                download file from "https://raw.githubusercontent.com/Coralvalley/politie/main/update/update.sk" to file "plugins/Skript/scripts/update.sk"
                 reload script "update"
