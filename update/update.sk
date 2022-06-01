@@ -1,10 +1,4 @@
-# When you update the plugin, this file gets downloaded and almost immediately deleted.
-# First the main plugin gets disabled and then there is a short 2 second wait.
-# After that the disabled main plugin file gets deleted and immediately replaced by the new version
-# Then when the new file is downloaded it will be reloaded.
-# The deletion of this file happens in the main plugin file.
 
-# Note: The deletion of the main plugin file doesn't result into your playerdata files being deleted!
 
 on load:
     set {_versionlink} to "{@versionlink}"
