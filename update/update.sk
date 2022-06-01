@@ -1,0 +1,39 @@
+# When you update the plugin, this file gets downloaded and almost immediately deleted.
+# First the main plugin gets disabled and then there is a short 2 second wait.
+# After that the disabled main plugin file gets deleted and immediately replaced by the new version
+# Then when the new file is downloaded it will be reloaded.
+# The deletion of this file happens in the main plugin file.
+
+# Note: The deletion of the main plugin file doesn't result into your playerdata files being deleted!
+
+on load:
+    set {_versionlink} to "{@versionlink}"
+    set {_pluginname} to "{@pluginname}"
+    set {_pluginfolder} to "{@pluginfolder}"
+    set {_pluginlink} to "{@pluginlink}"
+
+    set {_version} to text from {_versionlink}
+    set {_currentVersion} to yaml value "DoNotChange.version" in "%{_pluginname}%-config"
+
+    set {_characters::*} to {_version} split at "."
+    set {_newVersionCharacters} to "%{_characters::1}%%{_characters::2}%%{_characters::3}%" parsed as integer
+
+    set {_characters::*} to yaml value "DoNotChange.version" in "%{_pluginname}%-config" split at "."
+    set {_currentVersionCharacters} to "%{_characters::1}%%{_characters::2}%%{_characters::3}%" parsed as integer
+
+    # Disable the main plugin file 'crypto.sk'
+    disable script "%{_pluginname}%"
+    wait 2 seconds
+
+    # Delete the main plugin file now called '-crypto.sk'
+    delete file "plugins/Skript/scripts/-%{_pluginname}%.sk"
+
+    # Download the new main plugin file called 'crypto.sk'
+    download file from "%{_pluginlink}%" to file "plugins/Skript/scripts/%{_pluginname}%.sk"
+
+    # Enable and reload the main plugin file 'crypto.sk'
+    reload script "%{_pluginname}%"
+
+    # Set the version of the plugin in config.yml to the new version
+    set yaml value "DoNotChange.version" in "%{_pluginname}%-config" to {_version}
+    save yaml "%{_pluginname}%-config"
