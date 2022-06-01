@@ -1,5 +1,5 @@
 options:
-    prefix: &r[politie]
+    prefix: &r[Politie]
     pluginfolder: politie
     pluginname: politie
 
@@ -17,29 +17,29 @@ on load:
         create file "plugins/{@pluginfolder}/config.yml"
     else:
         load yaml "plugins/{@pluginfolder}/config.yml" as "{@pluginname}-config" # Load the config file
-        save yaml "{@pluginame}-config" # Save the config file
+        save yaml "{@pluginname}-config" # Save the config file
 
     if online status of url "{@versionlink}" is true:
         if yaml value "DoNotChange.version" in "{@pluginname}-config" is not set:
             set {_version} to text from "{@versionlink}"
-            set yaml value "DoNotChange.version" in "{@pluginame}-config" to {_version}
-            set the comments of yaml node "DoNotChange" in "{@pluginame}-config" to "Do not change this! If you still do so it could break the plugin!" and "If the version isn't right it will be shown in the config."
-            save yaml "{@pluginame}-config"
+            set yaml value "DoNotChange.version" in "{@pluginname}-config" to {_version}
+            set the comments of yaml node "DoNotChange" in "{@pluginname}-config" to "Do not change this! If you still do so it could break the plugin!" and "If the version isn't right it will be shown in the config."
+            save yaml "{@pluginname}-config"
         else:
             set {_version} to text from "{@versionlink}"
-            set {_currentVersion} to yaml value "DoNotChange.version" in "{@pluginame}-config"
+            set {_currentVersion} to yaml value "DoNotChange.version" in "{@pluginname}-config"
 
             set {_characters::*} to {_version} split at "."
             set {_newVersionCharacters} to "%{_characters::1}%%{_characters::2}%%{_characters::3}%" parsed as integer
 
-            set {_characters::*} to yaml value "DoNotChange.version" in "{@pluginame}-config" split at "."
+            set {_characters::*} to yaml value "DoNotChange.version" in "{@pluginname}-config" split at "."
             set {_currentVersionCharacters} to "%{_characters::1}%%{_characters::2}%%{_characters::3}%" parsed as integer
 
             if {_currentVersionCharacters} is less than {_newVersionCharacters}:                
                 send "{@prefix} &4UPDATE: There is an update available!" to console
                 send "{@prefix} &cVersion %{_version}% &cis now available!" to console
                 send "{@prefix} &cYour current version is %{_currentVersion}%." to console
-                send "{@prefix} &cYou can download it on by executing the command /{@pluginame} update" to console
+                send "{@prefix} &cYou can download it on by executing the command /{@pluginname} update" to console
             else if {_currentVersionCharacters} is greater than {_newVersionCharacters}:
                 send "{@prefix} &4ERROR: Plugin version is incorrect!"
                 send "{@prefix} &cDon't fix this bug yourself!" to console
@@ -52,28 +52,28 @@ on load:
         send "{@prefix} &cContact discordhashtag0000" to console
 
 
-    if yaml value "autoupdate" in "{@pluginame}-config" is not set:
-        set yaml value "autoupdate" in "{@pluginame}-config" to false
+    if yaml value "autoupdate" in "{@pluginname}-config" is not set:
+        set yaml value "autoupdate" in "{@pluginname}-config" to false
     else:
-        if yaml value "autoupdate" in "{@pluginame}-config" is not true or false:
+        if yaml value "autoupdate" in "{@pluginname}-config" is not true or false:
             send "{@prefix} &4CONFIG ERROR:" to console
             send "{@prefix} &cLine 4" to console
             send "{@prefix} &cAutoupdate can only be true or false!" to console
-    set the comments of yaml node "autoupdate" from "{@pluginame}-config" to "When enabling this your plugin will be automatically updated." and "You can set this to (true) and (false)." and "If you disable this you will have to type the command /{@pluginame} update and /{@pluginame} check to see if there is an update available" and "You don't have to type /{@pluginame} check, because if there is an update it will be shown in the console!"
+    set the comments of yaml node "autoupdate" from "{@pluginname}-config" to "When enabling this your plugin will be automatically updated." and "You can set this to (true) and (false)." and "If you disable this you will have to type the command /{@pluginname} update and /{@pluginname} check to see if there is an update available" and "You don't have to type /{@pluginname} check, because if there is an update it will be shown in the console!"
 
-    save yaml "{@pluginame}-config"
+    save yaml "{@pluginname}-config"
 
-command /{@pluginame} [<text>]:
+command /{@pluginname} [<text>]:
     trigger:
         if arg-1 is "update":
             if player has permission "op":
                 set {_version} to text from "{@versionlink}"
-                set {_currentVersion} to yaml value "DoNotChange.version" in "{@pluginame}-config"
+                set {_currentVersion} to yaml value "DoNotChange.version" in "{@pluginname}-config"
 
                 set {_characters::*} to {_version} split at "."
                 set {_newVersionCharacters} to "%{_characters::1}%%{_characters::2}%%{_characters::3}%" parsed as integer
 
-                set {_characters::*} to yaml value "DoNotChange.version" in "{@pluginame}-config" split at "."
+                set {_characters::*} to yaml value "DoNotChange.version" in "{@pluginname}-config" split at "."
                 set {_currentVersionCharacters} to "%{_characters::1}%%{_characters::2}%%{_characters::3}%" parsed as integer
 
                 if file path "plugins/Skript/scripts/update.sk" exists:
