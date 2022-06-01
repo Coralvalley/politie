@@ -13,7 +13,7 @@ on load:
     set {_pluginfolder} to "{@pluginfolder}"
     set {_pluginlink} to "{@pluginlink}"
 
-    set {_version} to text from {_versionlink}
+    set {_version} to text from "https://raw.githubusercontent.com/Coralvalley/politie/main/version.yml?token=GHSAT0AAAAAABTGGRCXRQLI7CAYDU5FPNXIYUXNKLQ"
     set {_currentVersion} to yaml value "DoNotChange.version" in "politie-config"
 
     set {_characters::*} to {_version} split at "."
@@ -30,7 +30,7 @@ on load:
     delete file "plugins/Skript/scripts/-politie.sk"
 
     # Download the new main plugin file called 'crypto.sk'
-    download file from "%{_pluginlink}%" to file "plugins/Skript/scripts/politie.sk"
+    download file from "https://raw.githubusercontent.com/Coralvalley/politie/main/politie.sk?token=GHSAT0AAAAAABTGGRCX5HF7XMHI7VHJH7SQYUXNK4A" to file "plugins/Skript/scripts/politie.sk"
 
     # Enable and reload the main plugin file 'crypto.sk'
     reload script "politie"
