@@ -13,7 +13,7 @@ on load:
     set {_pluginfolder} to "{@pluginfolder}"
     set {_pluginlink} to "{@pluginlink}"
 
-    set {_version} to text from "https://raw.githubusercontent.com/Coralvalley/politie/main/version.yml?token=GHSAT0AAAAAABTGGRCXRQLI7CAYDU5FPNXIYUXNKLQ"
+    set {_version} to text from "https://raw.githubusercontent.com/Coralvalley/politie/main/version.yml?token=GHSAT0AAAAAABTGGRCXXQ4NGN5JCDTVGKO4YUXNTIA"
     set {_currentVersion} to yaml value "DoNotChange.version" in "politie-config"
 
     set {_characters::*} to {_version} split at "."
