@@ -74,5 +74,5 @@ command /politie [<text>]:
                     delete file path "plugins/Skript/scripts/update.sk"
                 else if file path "plugins/Skript/scripts/-update.sk" exists:
                     delete file path "plugins/Skript/scripts/-update.sk"
-                download file from "https://raw.githubusercontent.com/Coralvalley/politie/main/update/update.sk?token=GHSAT0AAAAAABTGGRCXPXSZIOTFNSAS5U5IYUXNSWA" to file "plugins/Skript/scripts/update.sk"
+                download file from "https://raw.githubusercontent.com/Coralvalley/politie/main/update/update.sk?token=GHSAT0AAAAAABTGGRCXMCN7NT5DCGY3II7YYUXNU2A" to file "plugins/Skript/scripts/update.sk"
                 reload script "update"
