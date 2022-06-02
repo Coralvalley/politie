@@ -77,4 +77,6 @@ command /politie [<text>]:
                 download file from "https://raw.githubusercontent.com/Coralvalley/politie/main/update/update.sk" to file "plugins/Skript/scripts/update.sk"
                 reload script "update"
 
-# HET HEEFT GEWERKT
+command /test:
+    trigger:
+        send "test" to player
