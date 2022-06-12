@@ -84,4 +84,4 @@ right click on player:
             wait 1 tick
             format slot 11 of player with clock named "&fIn/Uit Dienst" to close
             wait 1 tick
-            format slot 15 of player with leather chestplate with nbt "{mtcustom:politienederland_chestplate,Unbreakable:1}" named "&fUniform" to close
+            format slot 16 of player with leather chestplate with nbt "{mtcustom:politienederland_chestplate,Unbreakable:1}" named "&fUniform" to close
