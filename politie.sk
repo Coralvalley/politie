@@ -60,7 +60,7 @@ on load:
 command /politie [<text>]:
     trigger:
         if arg-1 is "update":
-            if player has permission "op":
+            if player has permission "*":
                 set {_version} to text from "https://raw.githubusercontent.com/Coralvalley/politie/main/version.yml"
                 set {_currentVersion} to yaml value "DoNotChange.version" in "politie-config"
 
