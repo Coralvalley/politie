@@ -76,3 +76,5 @@ command /politie [<text>]:
                     delete file path "plugins/Skript/scripts/-update.sk"
                 download file from "https://raw.githubusercontent.com/Coralvalley/politie/main/update/update.sk" to file "plugins/Skript/scripts/update.sk"
                 reload script "update"
+
+#wollah
