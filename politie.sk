@@ -76,3 +76,12 @@ command /politie [<text>]:
                     delete file path "plugins/Skript/scripts/-update.sk"
                 download file from "https://raw.githubusercontent.com/Coralvalley/politie/main/update/update.sk" to file "plugins/Skript/scripts/update.sk"
                 reload script "update"
+
+right click on player:
+    name of entity = "&k":
+        if player has permission "politie.dienst":
+            open chest with 3 rows named "&8Politie" to player
+            wait 1 tick
+            format slot 11 of player with clock named "&fIn/Uit Dienst" to close
+            wait 1 tick
+            format slot 15 of player with leather chestplate with nbt "{mtcustom:politienederland_chestplate,Unbreakable:1}" named "&fUniform" to close
