@@ -92,7 +92,13 @@ right click on player:
 
 command /politiedienst:
     trigger:
-        politiedienst(player)
+        send "nee joh" to player
+        if {politie.dienst::%uuid of player%} is false:
+            set {politie.dienst::%uuid of player%} to true
+            send "{@prefix} &8» &fje bent nu in dienst!" to player
+        if {politie.dienst::%uuid of player%} is true:
+            set {politie.dienst::%uuid of player%} to false
+            send "{@prefix} &8» &fje bent nu uit dienst!" to player
 
 function politiedienst(p: player):
     if {politie.dienst::%uuid of player%} is false:
