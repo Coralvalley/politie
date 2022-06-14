@@ -1,5 +1,5 @@
 options:
-    prefix: &r[Politie]
+    prefix: &3&lPOLITIE
 
 on join:
     if player has permission "politie.dienst":
