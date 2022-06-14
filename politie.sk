@@ -86,24 +86,26 @@ right click on player:
         if player has permission "politie.dienst":
             open chest with 3 rows named "&8Politie" to player
             wait 1 tick
-            format slot 11 of player with clock named "&fIn/Uit Dienst" to close
+            format slot 11 of player with clock named "&fIn/Uit Dienst" to close then run [make player execute command "/politiedienst"]
             wait 1 tick
             format slot 15 of player with leather chestplate with nbt "{mtcustom:politienederland_chestplate,Unbreakable:1}" named "&fUniform" to close
 
 command /politiedienst:
     trigger:
-        send "nee joh" to player
-        if {politie.dienst::%uuid of player%} is false:
-            set {politie.dienst::%uuid of player%} to true
-            send "{@prefix} &8» &fje bent nu in dienst!" to player
-        if {politie.dienst::%uuid of player%} is true:
-            set {politie.dienst::%uuid of player%} to false
-            send "{@prefix} &8» &fje bent nu uit dienst!" to player
+        politiedienst(player)
 
-#function politiedienst(p: player):
-    #if {politie.dienst::%uuid of player%} is false:
-        #set {politie.dienst::%uuid of player%} to true
-        #send "{@prefix} &8» &fje bent nu in dienst!" to {_p}
-    #if {politie.dienst::%uuid of player%} is true:
-        #set {politie.dienst::%uuid of player%} to false
-        #send "{@prefix} &8» &fje bent nu uit dienst!" to {_p}
+function politiedienst(p: player):
+    if {politie.dienst::%uuid of player%} is false:
+        set {politie.dienst::%uuid of player%} to true
+        send "{@prefix} &8» &fje bent nu in dienst!" to {_p}
+    if {politie.dienst::%uuid of player%} is true:
+        set {politie.dienst::%uuid of player%} to false
+        send "{@prefix} &8» &fje bent nu uit dienst!" to {_p}
+
+#send "nee joh" to player
+        #if {politie.dienst::%uuid of player%} is false:
+            #set {politie.dienst::%uuid of player%} to true
+            #send "{@prefix} &8» &fje bent nu in dienst!" to player
+        #if {politie.dienst::%uuid of player%} is true:
+            #set {politie.dienst::%uuid of player%} to false
+            #send "{@prefix} &8» &fje bent nu uit dienst!" to player
