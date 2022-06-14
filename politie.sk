@@ -96,7 +96,7 @@ command /politiedienst:
             set {politie.dienst::%uuid of player%} to true
             send "{@prefix} &8» &fje bent nu in dienst!" to player
             stop
-        if {politie.dienst::%uuid of player%} is true:
+        else:
             set {politie.dienst::%uuid of player%} to false
             send "{@prefix} &8» &fje bent nu uit dienst!" to player
             stop
